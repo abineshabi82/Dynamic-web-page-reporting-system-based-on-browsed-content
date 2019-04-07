@@ -1,0 +1,37 @@
+html,body, .container6{
+				height:100%;
+			}
+			body{
+				font-family:verdana;
+				font-size:10px;
+			}
+			.container6{
+				background:#f6f6f6;
+				height:100%;
+			}
+			.context-menu{
+				width:200px;
+				height:auto;
+				box-shadow:0 0 20px 0 #ccc;
+				position:absolute;
+				background-color:#f6f6f6;
+				display:none;
+			}
+			.context-menu ul{
+				list-style:none;
+				padding:5px 0px 5px 0px;
+			}
+			.context-menu ul li:not(.separator){
+				padding:10px 5px 10px 5px;
+				border-left:4px solid;
+				cursor:pointer;
+			}
+			.context-menu ul li:hover{
+				background:#eee;
+				border-left:4px solid #666;
+			}
+			.separator{
+				height:1px;
+				background:#dedede;
+				margin:2px 0px 2px 0px;
+			}

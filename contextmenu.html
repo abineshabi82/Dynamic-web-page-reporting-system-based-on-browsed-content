@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>right click</title>
+		<style type="text/css">
+			html,body, .container6{
+				height:100%;
+			}
+			body{
+				font-family:verdana;
+				font-size:10px;
+			}
+			.container6{
+				background:#f6f6f6;
+				height:100%;
+			}
+			.context-menu{
+				width:200px;
+				height:auto;
+				box-shadow:0 0 20px 0 #ccc;
+				position:absolute;
+				display:none;
+			}
+			.context-menu ul{
+				list-style:none;
+				padding:5px 0px 5px 0px;
+			}
+			.context-menu ul li:not(.separator){
+				padding:10px 5px 10px 5px;
+				border-left:4px solid transparent;
+				curser:pointer;
+			}
+			.context-menu ul li:hover{
+				background:#eee;
+				border-left:4px solid #666;
+			}
+			.separator{
+				height:1px;
+				background:#dedede;
+				margin:2px 0px 2px 0px;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="container6" onselect="getSelectionText();" oncontextmenu="return showContextMenu();">
+		<div id="contextMenu" class="context-menu">
+			<ul>
+			<li id="c" onclick="loadsugg();">A</li>
+			<li>B</li>
+			<li>C</li>
+			<li class="separator"></li>
+			<li>D</li>
+			<li>F</li>
+			</ul>
+		</div>
+		<textarea id="b" rows="4" cols="50">
+			At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+		</textarea>
+		<input type="hidden" id="output"></input>
+	</div>
+	<script type="text/javascript">
+	window.onclick=hideContextMenu;
+	window.onkeydown=listenKeys;
+	var contextMenu=document.getElementById('contextMenu');
+	function showContextMenu(){
+		contextMenu.style.display='block';
+		contextMenu.style.left=event.clientX+'px';
+		contextMenu.style.top=event.clientY+'px';
+		return false;
+		return false;
+	}
+	function hideContextMenu(){
+		contextMenu.style.display='none';
+	}
+	
+	function listenKeys(event)
+	{
+		var keyCode=event.which||event.keyCode;
+		if(keyCode==27){
+			hideContextMenu();
+		}
+	}
+function getSelectionText(){
+	var quotearea = document.getElementById('b');
+var output = document.getElementById('output');
+quotearea.addEventListener('mouseup', function(){
+    if (this.selectionStart != this.selectionEnd){
+        var selectedtext = this.value.substring(this.selectionStart, this.selectionEnd);
+        document.getElementById("output").innerHTML = selectedtext;
+    }
+}, false);
+}
+function loadsugg(){
+		text2=document.getElementById('output');
+		var text3  = text2.textContent || text2.innerText;
+		if(text3!='')
+		{
+		baseURL = 'suggestions.html?a='+text3;
+		location.href = baseURL;
+		}
+}
+	</script>
+	</body>
+</html>

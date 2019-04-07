@@ -1,0 +1,25 @@
+{
+	"manifest_version":2,
+	
+	"name":"Suggestion events",
+	
+	"version": "1.0",
+	
+	"description": "Suggestions",
+	
+	
+	"browser_action":{ 
+		},
+	
+	"background":{
+	"scripts":["eventPage.js","eventPage1.js","eventPage2.js"],
+	"persistent": false
+	},
+	
+	"permissions": [
+		"storage",
+		"notifications",
+		"contextMenus",
+		"activeTab"
+		]
+}
